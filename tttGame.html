@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 330px;
+            height: auto;
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+            justify-content: space-evenly;
+            /* background-color: black; */
+        }
+
+        input {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            border-radius: 20%;
+            font-size: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* outline: 1px solid black; */
+            box-shadow: 0 14px 110px rgba(0, 0, 0, 0.25),
+                0 10px 10px rgba(0, 0, 0, 0.22);
+            /* background-color: yellow; */
+        }
+
+        h1 {
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> Tic-Tac-Toe Game</h1>
+    <div class="container">
+        <input type="button" value="" onclick="add(this.id)" id="a">
+        <input type="button" value="" onclick="add(this.id)" id="b">
+        <input type="button" value="" onclick="add(this.id)" id="c">
+        <input type="button" value="" onclick="add(this.id)" id="d">
+        <input type="button" value="" onclick="add(this.id)" id="e">
+        <input type="button" value="" onclick="add(this.id)" id="f">
+        <input type="button" value="" onclick="add(this.id)" id="g">
+        <input type="button" value="" onclick="add(this.id)" id="h">
+        <input type="button" value="" onclick="add(this.id)" id="i">
+    </div>
+
+    <h1 id="win"></h1>
+
+    <button onclick="reset()">Play Again!</button>
+</body>
+
+<script>
+    var x = 0;
+
+    function add(n) {
+
+        var y = document.getElementById(n).value;
+
+        // var Win = document.getElementById(win).innerHTML;
+
+            if (y == "") {
+
+                if (x % 2 == 0) {
+                    document.getElementById(n).value = "X";
+                }
+                else {
+                    document.getElementById(n).value = "O";
+                }
+                x++;
+            }
+            win();
+        }
+
+    function reset() {
+        location.reload();
+    }
+
+    function win() {
+        var b1 = document.getElementById("a").value;
+        var b2 = document.getElementById("b").value;
+        var b3 = document.getElementById("c").value;
+        var b4 = document.getElementById("d").value;
+        var b5 = document.getElementById("e").value;
+        var b6 = document.getElementById("f").value;
+        var b7 = document.getElementById("g").value;
+        var b8 = document.getElementById("h").value;
+        var b9 = document.getElementById("i").value;
+
+
+        if ((b1 == "X" && b2 == "X" && b3 == "X") || (b4 == "X" && b5 == "X" && b6 == "X") || (b7 == "X" && b8 == "X" && b9 == "X") || (b1 == "X" && b5 == "X" && b9 == "X") || (b3 == "X" && b5 == "X" && b7 == "X") || (b1 == "X" && b4 == "X" && b7 == "X") || (b2 == "X" && b5 == "X" && b8 == "X") || (b3 == "X" && b6 == "X" && b9 == "X")) {
+
+            document.getElementById("win").innerHTML = "X Win"
+
+        }
+
+        if ((b1 == "O" && b2 == "O" && b3 == "O") || (b4 == "O" && b5 == "O" && b6 == "O") || (b7 == "O" && b8 == "O" && b9 == "O") || (b1 == "O" && b5 == "O" && b9 == "O") || (b3 == "O" && b5 == "O" && b7 == "O") || (b1 == "O" && b4 == "O" && b7 == "O") || (b2 == "O" && b5 == "O" && b8 == "O") || (b3 == "O" && b6 == "O" && b9 == "O")) {
+            // console.log("akash");
+
+            document.getElementById("win").innerHTML = "O Win"
+
+        }   
+    }
+
+
+</script>
+
+</html>
